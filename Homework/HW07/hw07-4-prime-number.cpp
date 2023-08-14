@@ -14,3 +14,36 @@
     Output:
         97 89 83 79 73 71 67 61 59 53 47 43 41 37 31 29 23 19 17 13 11 7 5 3 2
 */
+#include <stdio.h>
+
+int is_prime(int num) {
+    if (num <= 1) {
+        return 0 ; // Not prime
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return 0 ; // Not prime
+        }
+    }
+    return 1; // Prime
+}
+
+int main() {
+    int endNumber;
+    printf( "Enter number: ") ;
+    scanf( "%d", &endNumber) ;
+
+    int currentNumber = endNumber ;
+    
+    printf( "Output:\n") ;
+    do {
+        if (is_prime(currentNumber)) {
+            printf( "%d ", currentNumber) ; 
+        }
+        currentNumber-- ;
+    } while (currentNumber >= 2) ;
+
+    printf( "\n") ;
+
+    return 0;
+}
